@@ -1,6 +1,7 @@
-// -*- mode: jsonc -*-
+/*************************************************************************************
+MAIN
+**************************************************************************************/
 {
-  //"layer": "top", // Waybar at top layer
   "height": 40,
   "output": "DP-1",
   "modules-left": ["hyprland/window"],
@@ -21,47 +22,50 @@
         "9": "<b>9</b>"
     }
 },
-  "hyprland/window": {},
-  "tray": {
-    "icon-size": 17,
-    "spacing": 8,
-  },
+/*************************************************************************************
+GROUPS
+**************************************************************************************/
   "group/update": {
     "orientation": "horizontal",
     "modules": ["custom/updates"],
   },
-  "custom/updates": {
-    "exec": "~/dotfiles/waybar/.config/waybar/scripts/arch-updates.sh",
-    "interval": 1800, // alle 30 Minuten prüfen
-    "format": "{}",
-    "tooltip": true,
-    "on-click": "kitty --hold ~/dotfiles/waybar/.config/waybar/scripts/run-updates.sh",
-    "return-type": "text"
-  },
   "group/hw": {
     "orientation": "horizontal",
     "modules": ["cpu", "memory"],
+  },
+  "group/control": {
+    "orientation": "horizontal",
+    "modules": ["custom/hyprsunset", "network", "battery", "bluetooth", "pulseaudio","backlight", "custom/brightness"],  
+  },
+/*************************************************************************************
+Modules
+**************************************************************************************/
+  "hyprland/window": {},
+  "tray": {
+    "icon-size": 17,
+    "spacing": 8,
   },
   "cpu": {
     "format": "<span color='#b2ccd6'>󰍛</span> {usage}%",
     "interval": 2,
     "on-click": "kitty btop",
   },
+  "clock": {
+    "timezone": "Europe/Berlin",
+    "format": "<span color='#ffcb6b'>󰥔</span> {:%a %b %d %R}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+  },
   "memory": {
     "format": "<span color='#c792ea'>󰘚</span> {used:.2g}GB",
     "interval": 2,
     "on-click": "kitty btop",
   },
-  "group/control": {
-    "orientation": "horizontal",
-    "modules": ["custom/hyprsunset", "network", "battery", "bluetooth", "pulseaudio","backlight", "custom/brightness"],  
-  },
   "battery": {
-   // "states": {
-   // "good": 95,
-   //  "warning": 30,
-   // "critical": 15,
-   // },
+    // "states": {
+    // "good": 95,
+    //  "warning": 30,
+    // "critical": 15,
+    // },
     "format": "<span color='#c3e88d'>{icon}</span> {capacity}%",
     "format-charging": "<span color='#c3e88d'>󱐋</span> {capacity}%",
     "format-plugged": "<span color='#c3e88d'></span> {capacity}%",
@@ -82,7 +86,6 @@
     "format-connected-battery": "<span color='#82aaff'></span> {device_battery_percentage}%",
     "tooltip-format": "{device_alias} {status}",
     "on-click": "blueman-manager",
-//  "on-click-right": "killall blueman-applet",
   },
   "pulseaudio": {
     "format": "<span color='#f78c6c'>{icon}</span> {volume}%",
@@ -102,6 +105,9 @@
     "format": "<span color='#ffcb6b'>☀</span> {percent}%",
     "tooltip": false,
   },
+/*************************************************************************************
+Custom-Modules
+**************************************************************************************/
   "custom/hyprsunset": {
     "return-type": "json",
     "exec": "~/dotfiles/waybar/.config/waybar/scripts/hyprsunset-toggle.sh status",
@@ -111,7 +117,7 @@
     "tooltip": false
   },
   "custom/brightness": {
-    "format": "<span color='#ffa500'> 󰛨</span> {}",  // Symbol direkt hier und der Prozentwert aus dem Skript
+    "format": "<span color='#ffa500'> 󰛨</span> {}",
     "return-type": "json",
     "interval": 2,
     "exec": "~/dotfiles/waybar/.config/waybar/scripts/brightness-step.sh status",
@@ -119,9 +125,12 @@
     "on-click-right": "~/dotfiles/waybar/.config/waybar/scripts/brightness-step.sh decrease",
     "tooltip": true,
   },
-  "clock": {
-    "timezone": "Europe/Berlin",
-    "format": "<span color='#ffcb6b'>󰥔</span> {:%a %b %d %R %p}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+  "custom/updates": {
+    "exec": "~/dotfiles/waybar/.config/waybar/scripts/arch-updates.sh",
+    "interval": 1800, 
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "kitty --hold ~/dotfiles/waybar/.config/waybar/scripts/run-updates.sh",
+    "return-type": "text"
   },
 }
