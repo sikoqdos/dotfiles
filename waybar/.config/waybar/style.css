@@ -1,108 +1,108 @@
-/* ============================= */
-/*           Waybar UI           */
-/* ============================= */
+/* @define-color bg0 #212121; */
+/*@define-color bg1 #353535;*/
+/*@define-color bg1 rgba(33,33,33,0.8);*/
+@define-color bg1 #212121;
+@define-color fg0 #eeffff;
+@define-color yellow #ffcb6b;
 
 * {
-  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", sans-serif;
-  font-size: 16px;
+  font-family: JetBrainsMono Nerd Font Propo;
+  font-size: 14px;
+  font-weight: 500;
+  min-height: 0;
+  border-color: @bg1;
 }
 
-/* Entferne den globalen Hintergrund */
-#waybar {
-  background: transparent;
-  border: none;
-  padding: 0;
+window#waybar {
+  /* background-color: @bg0; */
+  background-color: transparent;
+  color: @fg0; /* didn't affect workspaces */
 }
 
-/* Jedes Modul als einzelne, abgerundete Box */
-.modules-left, .modules-center, .modules-right {
-  background: none; /* Kein Hintergrund für die gesamte Gruppe */
-  padding: 0;
-  margin: 0;
+#workspaces {
+  background-color: @bg1;
+  border-radius: 18px;
+  padding: 0px 4px;
+
+  margin: 8px 4px 0px 8px;
 }
 
-/* ============================= */
-/*           Uhrzeit (links)     */
-/* ============================= */
-#clock {
-  padding: 6px 12px;
-  border-radius: 15px;
-  background: rgba(21, 21, 21, 1); /* Dunkler, transparenter Hintergrund */
-  margin: 5px;
+#workspaces button {
+  color: @fg0;
+  border-radius: 18px;
 }
 
-/* ============================= */
-/*           Workspaces          */
-/* ============================= */
-#hyprland-workspaces {
-  padding: 5px;
-  border-radius: 15px;
-  background: none; /* Kein Hintergrund für die gesamte Leiste */
+#workspaces button.active {
+  color: @yellow;
 }
 
-/* Einzelne Workspaces */
-#hyprland-workspaces button {
-  color: white;
-  padding: 6px 10px;
-  margin: 5px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  transition: background 0.3s ease-in-out;
+#window {
+  background-color: @bg1;
+  border-radius: 18px;
+  padding: 0px 16px;
+  margin: 8px 4px 0px 4px;
 }
 
-/* Aktiver Workspace */
-#hyprland-workspaces button.active {
-  background: rgba(255, 255, 255, 0.6);
-  color: black;
+window#waybar.empty #window {
+  /* hide empty module */
+  background-color: transparent;
 }
 
-/* ============================= */
-/*          Bluetooth            */
-/* ============================= */
-#bluetooth {
-  padding: 6px 12px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.4);
-  margin: 5px;
+#tray {
+  background-color: @bg1;
+  border-radius: 18px;
+  padding: 0px 16px;
+  margin: 8px 4px 0px 4px;
 }
 
-/* ============================= */
-/*          Memory usw           */
-/* ============================= */
-#pulseaudio {
-  padding: 6px 12px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.4);
-  margin: 5px;
+#hw {
+  background-color: @bg1;
+  border-radius: 18px;
+  padding: 0px 16px;
+  margin: 8px 4px 0px 4px;
 }
 
-/* ============================= */
-/*          Lautstärke           */
-/* ============================= */
-#pulseaudio {
-  padding: 6px 12px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.4);
-  margin: 5px;
+#cpu {
+  margin-right: 8px;
 }
 
-/* ============================= */
-/*           Akku                */
-/* ============================= */
+#memory {
+  margin-left: 8px;
+}
+
+#control {
+  background-color: @bg1;
+  border-radius: 18px;
+  padding: 0px 16px;
+  margin: 8px 4px 0px 4px;
+}
+
 #battery {
-  padding: 6px 12px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.4);
-  margin: 5px;
+  margin-right: 8px;
 }
 
-/* ============================= */
-/*           Netzwerk             */
-/* ============================= */
 #network {
-  padding: 6px 12px;
-  border-radius: 15px;
-  background: rgba(0, 0, 0, 0.4);
-  margin: 5px;
+  margin: 0px 8px;
 }
 
+#bluetooth {
+  margin: 0px 8px;
+}
+
+#pulseaudio {
+  margin: 0px 8px;
+}
+#backlight{
+  margin: 0px 8px;
+  margin-right: 16px;
+}
+#hyprland-language{
+  /*doesnt work*/
+}
+
+#clock {
+  background-color: @bg1;
+  border-radius: 18px;
+  padding: 0px 16px;
+  margin: 8px 8px 0px 4px;
+}
