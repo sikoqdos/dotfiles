@@ -4,7 +4,7 @@
   "height": 40,
   "modules-left": ["hyprland/window"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["tray", "group/hw", "group/control", "clock"],
+  "modules-right": ["tray", "group/update", "group/hw", "group/control", "clock"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -25,6 +25,18 @@
     "icon-size": 17,
     "spacing": 8,
   },
+  "group/update": {
+    "orientation": "horizontal",
+    "modules": ["custom/updates"],
+  },
+  "custom/updates": {
+    "exec": "~/.config/waybar/scripts/arch-updates.sh",
+    "interval": 1800, // alle 30 Minuten prüfen
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "kitty --hold sudo pacman -Syu && yay -Sua",
+    "return-type": "text"
+  },
   "group/hw": {
     "orientation": "horizontal",
     "modules": ["cpu", "memory"],
@@ -41,7 +53,7 @@
   },
   "group/control": {
     "orientation": "horizontal",
-    "modules": ["battery", "network", "bluetooth", "pulseaudio","backlight", "hyprland/language"],  
+    "modules": ["network", "battery", "bluetooth", "pulseaudio","backlight"],  
   },
   "battery": {
    // "states": {
@@ -56,9 +68,9 @@
     "format-icons": ["󰁺", "󰁼", "󰁾", "󰂁", "󰁹"],
   },
   "network": {
-    "format-ethernet": "<span color='#89ddff'>󰈀</span> {bandwidthDownBytes:=}",
-    "format-wifi": "<span color='#89ddff'>{icon}</span> {bandwidthDownBytes:=}",
-    "format-disconnected": "<span color='#89ddff'>󰤭</span> {bandwidthDownBytes:=}",
+    "format-ethernet": "<span color='#89ddff'>󰈀</span>",
+    "format-wifi": "<span color='#89ddff'>{icon}</span>",
+    "format-disconnected": "<span color='#89ddff'>󰤭</span>",
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "interval": 2,
     "tooltip-format": "{essid}",
@@ -83,22 +95,14 @@
       "default": ["󰕿", "󰖀", "󰕾"],
     },
     "on-click": "pavucontrol",
-    
   },
   "backlight": {
     "device": "intel_backlight",
     "format": "<span color='#ffcb6b'>☀</span> {percent}%",
     "tooltip": false,
-
-},
-  
-    "hyprland/language": {
-    "format": "<span color='#c792ea'></span> {shortDescription} ",
-    "keyboard-name": "at-translated-set-2-keyboard",
-    "min-length": 5
 },
   "clock": {
-    "timezone": "Europe/Moscow",
+    "timezone": "Europe/Berlin",
     "format": "<span color='#ffcb6b'>󰥔</span> {:%a %b %d %R %p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   },

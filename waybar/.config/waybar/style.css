@@ -55,6 +55,13 @@ window#waybar.empty #window {
   margin: 8px 4px 0px 4px;
 }
 
+#update {
+  background-color: @bg1;
+  border-radius: 18px;
+  padding: 0px 16px;
+  margin: 8px 4px 0px 4px;
+}
+
 #hw {
   background-color: @bg1;
   border-radius: 18px;
