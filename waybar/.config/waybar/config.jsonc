@@ -2,6 +2,7 @@
 {
   //"layer": "top", // Waybar at top layer
   "height": 40,
+  "output": "DP-1",
   "modules-left": ["hyprland/window"],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": ["tray", "group/update", "group/hw", "group/control", "clock"],
@@ -30,11 +31,11 @@
     "modules": ["custom/updates"],
   },
   "custom/updates": {
-    "exec": "~/.config/waybar/scripts/arch-updates.sh",
+    "exec": "~/dotfiles/waybar/.config/waybar/scripts/arch-updates.sh",
     "interval": 1800, // alle 30 Minuten prüfen
     "format": "{}",
     "tooltip": true,
-    "on-click": "kitty --hold sudo pacman -Syu && yay -Sua",
+    "on-click": "kitty --hold ~/dotfiles/waybar/.config/waybar/scripts/run-updates.sh",
     "return-type": "text"
   },
   "group/hw": {
@@ -53,7 +54,7 @@
   },
   "group/control": {
     "orientation": "horizontal",
-    "modules": ["network", "battery", "bluetooth", "pulseaudio","backlight"],  
+    "modules": ["custom/hyprsunset", "network", "battery", "bluetooth", "pulseaudio","backlight", "custom/brightness"],  
   },
   "battery": {
    // "states": {
@@ -100,7 +101,24 @@
     "device": "intel_backlight",
     "format": "<span color='#ffcb6b'>☀</span> {percent}%",
     "tooltip": false,
-},
+  },
+  "custom/hyprsunset": {
+    "return-type": "json",
+    "exec": "~/dotfiles/waybar/.config/waybar/scripts/hyprsunset-toggle.sh status",
+    "on-click": "~/dotfiles/waybar/.config/waybar/scripts/hyprsunset-toggle.sh",
+    "interval": 2,
+    "class": "hyprsunset",
+    "tooltip": false
+  },
+  "custom/brightness": {
+    "format": "<span color='#ffa500'> 󰛨</span> {}",  // Symbol direkt hier und der Prozentwert aus dem Skript
+    "return-type": "json",
+    "interval": 2,
+    "exec": "~/dotfiles/waybar/.config/waybar/scripts/brightness-step.sh status",
+    "on-click": "~/dotfiles/waybar/.config/waybar/scripts/brightness-step.sh increase",
+    "on-click-right": "~/dotfiles/waybar/.config/waybar/scripts/brightness-step.sh decrease",
+    "tooltip": true,
+  },
   "clock": {
     "timezone": "Europe/Berlin",
     "format": "<span color='#ffcb6b'>󰥔</span> {:%a %b %d %R %p}",

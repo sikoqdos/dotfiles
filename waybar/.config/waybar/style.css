@@ -84,12 +84,30 @@ window#waybar.empty #window {
   margin: 8px 4px 0px 4px;
 }
 
+#custom-hyprsunset {
+  margin-right: 8px;
+}
+
+#custom-hyprsunset.day {
+  color: #facc15; /* Gelb */
+}
+
+#custom-hyprsunset.night {
+  color: #60a5fa; /* Blau */
+}
+
+#custom-brightness {
+  color: #ffffff;
+  margin-right: 8px;
+}
+
 #battery {
   margin-right: 8px;
 }
 
 #network {
   margin: 0px 8px;
+  margin-left: 8px;
 }
 
 #bluetooth {
@@ -99,12 +117,10 @@ window#waybar.empty #window {
 #pulseaudio {
   margin: 0px 8px;
 }
+
 #backlight{
   margin: 0px 8px;
   margin-right: 16px;
-}
-#hyprland-language{
-  /*doesnt work*/
 }
 
 #clock {
