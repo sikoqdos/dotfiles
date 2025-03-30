@@ -1,16 +1,16 @@
 configuration {
   show-icons: false;
-  font: "JetBrainsMono Nerd Font 16";
+  font: "JetBrainsMono Nerd Font 12";
   disable-history: true;
   hide-scrollbar: true;
   fullscreen: false;
 }
 
 * {
-  background-color: #1e1e2e;
-  text-color: #cdd6f4;
-  selected-background-color: #89b4fa;
-  selected-text-color: #1e1e2e;
+  background-color: #191D24;
+  text-color: #c0c8d8;
+  selected-background-color: #242933;
+  selected-text-color: #242933;
   padding: 6px;
   spacing: 6px;
   border-radius: 8px;
@@ -44,5 +44,14 @@ element {
 element selected {
   background-color: @selected-background-color;
   text-color: @selected-text-color;
+}
+
+
+element-text {
+  background-color: transparent;
+}
+
+element-text selected {
+  background-color: transparent;
 }
 
