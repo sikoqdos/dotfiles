@@ -1,0 +1,21 @@
+# Nordic Theme for btop
+# Based on Nord color palette
+
+theme[main_bg]="#191D24"
+theme[main_fg]="#d8dee9"
+theme[title]="#81a1c1"
+theme[hi_fg]="#88c0d0"
+theme[selected_bg]="#4c566a"
+theme[selected_fg]="#eceff4"
+theme[inactive_fg]="#616e88"
+theme[proc_good]="#a3be8c"
+theme[proc_bad]="#bf616a"
+theme[proc_critical]="#d08770"
+theme[graph_text]="#d8dee9"
+theme[meter_bg]="#3b4252"
+theme[meter_fg]="#5e81ac"
+theme[meter_hi]="#88c0d0"
+theme[net_rx]="#8fbcbb"
+theme[net_tx]="#b48ead"
+theme[proc_box]="#3b4252"
+

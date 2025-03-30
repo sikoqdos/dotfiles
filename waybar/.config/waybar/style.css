@@ -37,6 +37,12 @@ window#waybar {
   color: @yellow;
 }
 
+#workspaces button:hover {
+  color: @yellow;
+  background-color: transparent;
+  box-shadow: none;
+}
+
 #window {
   background-color: @bg1;
   border-radius: 18px;
