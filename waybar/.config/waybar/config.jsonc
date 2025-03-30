@@ -6,7 +6,7 @@ MAIN
   "output": "DP-1",
   "modules-left": ["hyprland/window"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["tray", "group/update", "group/hw", "group/control", "clock"],
+  "modules-right": ["group/update", "group/hw", "group/control", "clock", "custom/swaync", "custom/powermenu"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
@@ -35,7 +35,7 @@ GROUPS
   },
   "group/control": {
     "orientation": "horizontal",
-    "modules": ["custom/hyprsunset", "network", "battery", "bluetooth", "pulseaudio","backlight", "custom/brightness"],  
+    "modules": ["custom/hyprsunset", "network", "battery", "bluetooth", "pulseaudio", "backlight", "custom/brightness"],  
   },
 /*************************************************************************************
 Modules
@@ -56,7 +56,7 @@ Modules
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
   },
   "memory": {
-    "format": "<span color='#c792ea'>󰘚</span> {used:.2g}GB",
+    "format": "<span color='#c792ea'>󰘚</span> {used:.2g} GB",
     "interval": 2,
     "on-click": "kitty btop",
   },
@@ -79,7 +79,7 @@ Modules
     "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
     "interval": 2,
     "tooltip-format": "{essid}",
-    "on-click": "nm-applet",
+    "on-click": "~/dotfiles/rofi/.config/rofi/scripts/rofi-wifi-menu.sh",
   },
   "bluetooth": {
     "format": "<span color='#82aaff'></span> {status}",
@@ -127,10 +127,28 @@ Custom-Modules
   },
   "custom/updates": {
     "exec": "~/dotfiles/waybar/.config/waybar/scripts/arch-updates.sh",
-    "interval": 1800, 
+    "interval": 3600, 
     "format": "{}",
     "tooltip": true,
-    "on-click": "kitty --hold ~/dotfiles/waybar/.config/waybar/scripts/run-updates.sh",
+    "signal": 8,
+    "on-click": "kitty yay;  pkill -SIGRTMIN+8 waybar",
     "return-type": "text"
+  },
+  "custom/swaync": {
+    "format": "󰂚",
+    "tooltip": false,
+    "on-click": "swaync-client -t",
+    "on-click-right": "swaync-client -C",
+    "on-click-middle": "swaync-client -d",
+    "return-type": "text",
+    "interval": 0
+  },
+  "custom/powermenu": {
+    "format": "󰐥",
+    "tooltip": "Powermenü öffnen",
+    "on-click": "~/dotfiles/waybar/.config/waybar/scripts/powermenu.sh",
+    "interval": 86400,
+    "return-type": "text",
+    "class": "powermenu"
   },
 }

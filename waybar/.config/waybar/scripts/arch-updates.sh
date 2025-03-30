@@ -11,10 +11,11 @@ output=""
 
 if [ "$pacman_count" -gt 0 ]; then
   output+=" $pacman_count "
-fi
-
-if [ "$aur_count" -gt 0 ]; then
-  output+="󰮯 $aur_count"
+  if [ "$aur_count" -gt 0 ]; then
+    output+=" 󰮯 $aur_count"
+  fi
+elif [ "$aur_count" -gt 0 ]; then
+  output="󰮯 $aur_count"
 fi
 
 # Wenn beides 0 ist

@@ -1,7 +1,8 @@
 /* @define-color bg0 #212121; */
 /*@define-color bg1 #353535;*/
 /*@define-color bg1 rgba(33,33,33,0.8);*/
-@define-color bg1 #212121;
+/*@define-color bg1 #212121;*/
+@define-color bg1 #191D24;
 @define-color fg0 #eeffff;
 @define-color yellow #ffcb6b;
 
@@ -48,7 +49,7 @@ window#waybar.empty #window {
   background-color: transparent;
 }
 
-#tray {
+#custom-swaync {
   background-color: @bg1;
   border-radius: 18px;
   padding: 0px 16px;
@@ -129,3 +130,14 @@ window#waybar.empty #window {
   padding: 0px 16px;
   margin: 8px 8px 0px 4px;
 }
+
+#custom-powermenu {
+  font-size: 15px;
+  color: #ff5555;
+  background-color: @bg1;
+  border-radius: 18px;
+  padding: 0px 16px;
+  margin: 8px 4px 0px 4px;
+  font-weight: bold;
+}
+
