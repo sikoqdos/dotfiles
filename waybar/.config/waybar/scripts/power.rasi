@@ -1,0 +1,48 @@
+configuration {
+  show-icons: false;
+  font: "JetBrainsMono Nerd Font 16";
+  disable-history: true;
+  hide-scrollbar: true;
+  fullscreen: false;
+}
+
+* {
+  background-color: #1e1e2e;
+  text-color: #cdd6f4;
+  selected-background-color: #89b4fa;
+  selected-text-color: #1e1e2e;
+  padding: 6px;
+  spacing: 6px;
+  border-radius: 8px;
+}
+
+window {
+  width: 350px;
+  border: 0;
+  border-radius: 12px;
+}
+
+mainbox {
+  children: [listview];
+  padding: 12px;
+}
+
+listview {
+  columns: 1;
+  lines: 4;              // ← zeigt genau 4 Zeilen
+  fixed-height: true;    // ← verhindert Zusammenstauchen
+  spacing: 10px;         // ← vertikaler Abstand
+  dynamic: false;
+}
+
+element {
+  padding: 14px 20px;    // ← Zeilenhöhe und horizontales Padding
+  border-radius: 6px;
+  background-color: transparent;
+}
+
+element selected {
+  background-color: @selected-background-color;
+  text-color: @selected-text-color;
+}
+
