@@ -6,7 +6,7 @@ MAIN
   "output": "DP-1",
   "modules-left": ["hyprland/window"],
   "modules-center": ["hyprland/workspaces"],
-  "modules-right": ["group/update", "group/hw", "group/control", "clock", "custom/swaync", "custom/powermenu"],
+  "modules-right": ["tray", "group/update", "group/hw", "group/control", "clock", "custom/swaync", "custom/powermenu"],
   "hyprland/workspaces": {
     "on-click": "activate",
     "format": "{icon}",
