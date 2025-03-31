@@ -3,9 +3,10 @@ MAIN
 **************************************************************************************/
 {
   "height": 40,
-  "output": "DP-1",
-  "modules-left": ["hyprland/window"],
-  "modules-center": ["hyprland/workspaces"],
+  /*"output": "DP-1",*/
+  "output": "eDP-1",
+  "modules-left": ["hyprland/workspaces","hyprland/window"],
+  "modules-center": [],
   "modules-right": ["tray", "group/update", "group/hw", "group/control", "clock", "custom/swaync", "custom/powermenu"],
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -35,7 +36,7 @@ GROUPS
   },
   "group/control": {
     "orientation": "horizontal",
-    "modules": ["custom/hyprsunset", "network", "battery", "bluetooth", "pulseaudio", "backlight", "custom/brightness"],  
+    "modules": ["custom/hyprsunset", "network", "battery", "bluetooth", "pulseaudio", "backlight" ],  
   },
 /*************************************************************************************
 Modules
