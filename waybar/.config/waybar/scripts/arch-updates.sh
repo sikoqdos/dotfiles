@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Anzahl regulärer Pacman-Updates
-pacman_count=$(checkupdates 2>/dev/null | wc -l)
+pacman_count=$(pachman -Qua 2>/dev/null | wc -l)
 
 # Anzahl AUR-Updates via yay
-aur_count=$(yay -Qua 2>/dev/null | wc -l)
+aur_count=$(yay -Qu 2>/dev/null | wc -l)
 
 # Icons:  (Arch) und 󰮯 (AUR)
 output=""
