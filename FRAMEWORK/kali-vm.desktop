@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Kali
+Exec=quickemu --vm /home/sikoqdos/vms/kali-current.conf
+Terminal=false
+Type=Application
+Icon=~/dotfiles/rofi/.config/rofi/icons/kali.png
+Categorie=System;Emulator;

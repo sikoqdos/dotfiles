@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Obsidian
+Exec=env OZONE_PLATFORM=wayland ELECTRON_OZONE_PLATFORM_HINT=auto obsidian %U
+Terminal=false
+Type=Application
+Icon=obsidian
+StartupWMClass=obsidian
+Comment=Obsidian
+MimeType=x-scheme-handler/obsidian;
+Categories=Office;
